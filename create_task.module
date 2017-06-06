@@ -91,6 +91,7 @@ function create_task_form_submit($form, &$form_state) {
        'description'=>$form_state['values']['description'],
        'tags'=>$form_state['values']['tags'],
        'incentives'=>$form_state['values']['incentives'],
+       'filename'=>$file->filename,
       ),"POST"
     ),
   );
@@ -110,7 +111,7 @@ $data = http_build_query($form_state['values'], '', '&');
 
 function create_task_form_validate($form,&$form_state)
 {
-	/*print('<pre>'.print_r($form_state['values'],1).'</pre>');//die();
+  /*print('<pre>'.print_r($form_state['values'],1).'</pre>');//die();
   if(!is_numeric($form_state['values']['mynumber']))
   {
     form_set_error('mynumber',t('You must enter a valid number'));

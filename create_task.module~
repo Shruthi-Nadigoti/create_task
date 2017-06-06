@@ -61,18 +61,6 @@ function create_task_form($form,&$form_state){
 	return $form;
 
 }
-/*function create_task_form_submit($form, &$form_state) {
-  // is no executed if $form['#action'] is set
-
-  // use of drupal_http_request
-  $url = url($GLOBALS['base_url'].'/test.php');
-  $headers = array('Content-Type' => 'application/x-www-form-urlencoded');
-  $data = http_build_query($form_state['values'], '', '&');
-
-  // the actual sending of the data
-  $response = drupal_http_request($url, array($headers, 'POST', $data)); // <----- this does not "send" user to http://external.url.where.i.have.no.control
-
-}*/
 
 /*function create_task_form_alter(&$form, &$form_state, $form_id) {
     //  dpm($form_id)
@@ -80,10 +68,6 @@ function create_task_form($form,&$form_state){
       //if($form_id == 'article_node_form') {
         $form['actions']['submit']['#submit'][] = 'my_node_form_submit';
     //  }
-    }
-
-function my_node_form_submit($form, &$form_state) {
-      $form_state['redirect'] = $GLOBALS['base_url'].'/test.php';
     }*/
 function create_task_form_submit($form, &$form_state) {
   //$s=  $form_state['values']['taken'];
@@ -107,6 +91,7 @@ function create_task_form_submit($form, &$form_state) {
        'description'=>$form_state['values']['description'],
        'tags'=>$form_state['values']['tags'],
        'incentives'=>$form_state['values']['incentives'],
+       'filename'=>$file->filename,
       ),"POST"
     ),
   );
@@ -126,7 +111,7 @@ $data = http_build_query($form_state['values'], '', '&');
 
 function create_task_form_validate($form,&$form_state)
 {
-	/*print('<pre>'.print_r($form_state['values'],1).'</pre>');//die();
+  /*print('<pre>'.print_r($form_state['values'],1).'</pre>');//die();
   if(!is_numeric($form_state['values']['mynumber']))
   {
     form_set_error('mynumber',t('You must enter a valid number'));
