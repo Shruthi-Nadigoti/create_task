@@ -1,0 +1,7 @@
+name= "Create Task"
+package= "Create Task"
+description= "this module is for creating task"
+core= "7.x"
+version= "7.x-1.0"
+php= "5.5.9"
+configure=create-task

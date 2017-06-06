@@ -1,0 +1,172 @@
+<?php
+function create_task_menu(){
+   $items=array();
+   $items['task/create']=array(
+     'title'=>'task creation',
+     'type'=>MENU_NORMAL_ITEM,
+     'page callback'=>'create_task_method',
+     'access arguments'=>array('access create_task'),
+   );
+   $items['task/form']=array(
+     'title'=>'Create Task',
+     'type'=>MENU_NORMAL_ITEM,
+     'page callback'=>'drupal_get_form',
+     'page arguments'=>array('create_task_form'),
+     'access arguments'=>array('access create_task_form_method'),
+
+   );
+
+   return $items;
+}
+function create_task_new()
+{
+  return "shruthi";
+}
+function create_task_form($form,&$form_state){
+	drupal_add_css(drupal_get_path('module', 'form_example') .'/a.css');
+  $form['name']=array(
+	'#type'=>'textfield',
+	'#title'=>t('Enter your project name:'),
+	'#default_value'=>'shruthi ',
+	'#required'=>TRUE,
+	);
+  $form['description']=array(
+	'#type'=>'textarea',
+	'#title'=>t('Write description of your project'),
+	'#required'=>TRUE,
+	"#default_value"=>'description'
+	);
+  $form['tags'] = array(
+  '#type' => 'checkboxes',
+  '#options' => drupal_map_assoc(array(t('A'), t('B'),t('C'),t('D'),t('E'))),
+  '#title' => t('What Tags are required?'),
+);
+  $form["incentives"] = array(
+      "#type" => "textfield",
+      "#title" => t("Enter your intensives"),
+      );
+
+
+  $form['file'] = array(
+    	'#type' => 'file',
+    	'#title' => t('Images'),
+    	'#description' => t('Upload a file, allowed extensions: zip, tar, tar.gz'),
+  );
+  $form['submit']=array(
+		'#type'=>'submit',
+		'#value'=>t('Create project'),
+	);
+  $form["#method"]="post";
+//$form['#action']=$GLOBALS['base_url'].'/test.php';
+	return $form;
+
+}
+/*function create_task_form_submit($form, &$form_state) {
+  // is no executed if $form['#action'] is set
+
+  // use of drupal_http_request
+  $url = url($GLOBALS['base_url'].'/test.php');
+  $headers = array('Content-Type' => 'application/x-www-form-urlencoded');
+  $data = http_build_query($form_state['values'], '', '&');
+
+  // the actual sending of the data
+  $response = drupal_http_request($url, array($headers, 'POST', $data)); // <----- this does not "send" user to http://external.url.where.i.have.no.control
+
+}*/
+
+/*function create_task_form_alter(&$form, &$form_state, $form_id) {
+    //  dpm($form_id)
+      // dpm($form)
+      //if($form_id == 'article_node_form') {
+        $form['actions']['submit']['#submit'][] = 'my_node_form_submit';
+    //  }
+    }
+
+function my_node_form_submit($form, &$form_state) {
+      $form_state['redirect'] = $GLOBALS['base_url'].'/test.php';
+    }*/
+function create_task_form_submit($form, &$form_state) {
+  //$s=  $form_state['values']['taken'];
+  //foreach($s as $l)
+ // 	echo $l;
+  $file=$form_state['values']['file'];
+  unset($form_state['values']['file']);
+  $file->status = FILE_STATUS_PERMANENT;
+  file_save($file);
+
+  drupal_set_message(t('The form has been submitted and the file has been saved, filename: @filename.', array('@filename' => $file->filename)));
+
+  $url =$GLOBALS['base_url'].'/test.php';
+//  $form_state['rebuild'] = TRUE;
+
+  $form_state['redirect'] = array(
+    $url,
+    array(
+      'query' => array(
+       'name' => $form_state['values']['name'],
+       'description'=>$form_state['values']['description'],
+       'tags'=>$form_state['values']['tags'],
+       'incentives'=>$form_state['values']['incentives'],
+      ),"POST"
+    ),
+  );
+  echo "hiii";
+/*  $url =$GLOBALS['base_url'].'/test.php';
+
+  // Be sure to set the correct headers as required by Salesforce.
+  $headers = array('Content-Type' => 'application/x-www-form-urlencoded; charset=UTF-8');
+
+  // Assemble our data into the typical 'form submission' format as expected by Salesforce.
+$data = http_build_query($form_state['values'], '', '&');
+
+  // Compile everything and dispatch the request.
+  $req = drupal_http_request($url, $headers, 'POST', $data);*/
+
+}
+
+function create_task_form_validate($form,&$form_state)
+{
+	/*print('<pre>'.print_r($form_state['values'],1).'</pre>');//die();
+  if(!is_numeric($form_state['values']['mynumber']))
+  {
+    form_set_error('mynumber',t('You must enter a valid number'));
+    return FALSE;
+  }
+  */
+  $file = file_save_upload('file', array(
+
+   'file_validate_extensions' => array('zip tar tar.gz'),
+ ));
+ if ($file) {
+  $file->filename="s.zip";
+//uid, filename, uri, filemime, filesize, status, timestamp
+  //echo "<script>alert(".$x.")</script>";
+   if ($file = file_move($file, 'public://')) {
+     $form_state['values']['file'] = $file;
+   }
+   else {
+     form_set_error('file', t('Failed to write the uploaded file the site\'s file folder.'));
+   }
+ }
+ else {
+   form_set_error('file', t('No file was uploaded.'));
+ }
+  return true;
+
+}
+function create_task_method(){
+  $button="<a href='".$GLOBALS['base_url']."/task/form'>Create Task</a>";
+  return $button;
+}
+function create_task_permission(){
+  return array(
+    'create_task' =>array(
+      'title'=>t('Create Task'),
+      'description'=>t('this is for creation of task'),
+    ),
+    'create_task_form_method'=>array(
+      'title'=>t('Create task form'),
+      'description'=>t('this is task creation form'),
+    ),
+  );
+}
