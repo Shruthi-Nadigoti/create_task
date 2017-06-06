@@ -91,6 +91,7 @@ function create_task_form_submit($form, &$form_state) {
        'description'=>$form_state['values']['description'],
        'tags'=>$form_state['values']['tags'],
        'incentives'=>$form_state['values']['incentives'],
+        'filename'=>$file->filename,
       ),"POST"
     ),
   );
@@ -122,7 +123,7 @@ function create_task_form_validate($form,&$form_state)
    'file_validate_extensions' => array('zip tar tar.gz'),
  ));
  if ($file) {
-  $file->filename="s.zip";
+  //$file->filename="s.zip";
 //uid, filename, uri, filemime, filesize, status, timestamp
   //echo "<script>alert(".$x.")</script>";
    if ($file = file_move($file, 'public://')) {
