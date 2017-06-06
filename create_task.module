@@ -80,7 +80,7 @@ function create_task_form_submit($form, &$form_state) {
 
   drupal_set_message(t('The form has been submitted and the file has been saved, filename: @filename.', array('@filename' => $file->filename)));
 
-  $url =$GLOBALS['base_url'].'/test.php';
+  $url =drupal_get_path('module','create_task').'/test.php';
 //  $form_state['rebuild'] = TRUE;
 
   $form_state['redirect'] = array(
