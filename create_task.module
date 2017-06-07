@@ -43,7 +43,7 @@ function create_task_form($form,&$form_state){
 );
   $form["incentives"] = array(
       "#type" => "textfield",
-      "#title" => t("Enter your intensives"),
+      "#title" => t("Enter your incentives"),
       );
 
 
