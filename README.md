@@ -52,7 +52,7 @@ National virtual library of India (NVLI) is a platform for storing digital asset
 To contribute to the project, clone the repository using git
 
 ```
-git clone 
+git clone https://github.com/97amarnathk/FRG-Crowdsourcing.git
 ```
 
 Read the PyBossa Documentation [here][1]
