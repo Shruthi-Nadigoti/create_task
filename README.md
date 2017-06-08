@@ -16,6 +16,8 @@ National virtual library of India (NVLI) is a platform for storing digital asset
 
 ## Description
 
+Digital Assets to be made searchable need to be tagged when stored in the repository. However, it is not possible for one person to tag all the digital assets as it is a very tedious task. To ease this process the work can be srowd-sourced using this platform. Authorized users can add tasks to be tagged. Images, Audio files, Video files and documents can be uploaded for tagging. Task Redundancy can be set which indicates the minimum number of times each entity needs to be tagged. Once an asset is tagged for the required number of times, the tags are saved and the image is not available for further tagging. Tags can be later reviewed to ensure minimum error in the tags given by users.
+
 ## Content
 
 ## Usage
