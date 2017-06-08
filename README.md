@@ -6,6 +6,9 @@ National virtual library of India (NVLI) is a platform for storing digital asset
 - [Description](#description)
 - [Content](#content)
 - [Usage](#usage)
+  - [Create New Project](#create-new-project)
+  - [Add New Task](#add-new-task)
+  - [Contribute to a task](#contribute-to-a-task)
 - [Contributing](#contributing)
 - [Credits](#credits)
 - [Authors](#authors)
@@ -16,6 +19,10 @@ National virtual library of India (NVLI) is a platform for storing digital asset
 ## Content
 
 ## Usage
+
+- Create New Project
+- Add new task 
+- Contribute To a Task
 
 ## Contributing
 
