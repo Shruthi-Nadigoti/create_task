@@ -49,6 +49,14 @@ National virtual library of India (NVLI) is a platform for storing digital asset
 
 ## Contributing
 
+To contribute to the project, clone the repository using git
+
+'''
+git clone 
+'''
+
+Read the PyBossa Documentation [here][1]
+
 ## Credits
 
 ## Authors
@@ -66,3 +74,6 @@ National virtual library of India (NVLI) is a platform for storing digital asset
 - <https://github.com/97amarnathk>
 
 ## License
+
+
+[1]:http://docs.pybossa.com/en/latest/build_with_pybossa.html
