@@ -22,30 +22,30 @@ National virtual library of India (NVLI) is a platform for storing digital asset
 
 ### Create New Project
 
-User must login as an administrator to Create a new Project.
-Click on the Create option as shown.
-Give an appropriate name and description to the project.
-Enter the possible domain associated with the project.
-Click on Create Button to complete the project creation.
+- User must login as an administrator to Create a new Project.
+- Click on the Create option as shown.
+- Give an appropriate name and description to the project.
+- Enter the possible domain associated with the project.
+- Click on Create Button to complete the project creation.
 
 ### Add new task 
 
-User must login as an administrator to add tasks to any project.
-The user can find published projects after logging in.
-Select the required project from the available options.
-Click on the Add Task button as shown.
-Select the type of files to be uploaded.
-Upload the files in a compressed format.
-Select meta-data tags required for the question.
-Click on Add Task to create the task.
+- User must login as an administrator to add tasks to any project.
+- The user can find published projects after logging in.
+- Select the required project from the available options.
+- Click on the Add Task button as shown.
+- Select the type of files to be uploaded.
+- Upload the files in a compressed format.
+- Select meta-data tags required for the question.
+- Click on Add Task to create the task.
 
 ### Contribute To a Task
 
-Any user can contribute to available tasks.
-User has to select a project he or she wishes to contribute.
-The system will allocate some number of tasks for the user to solve.
-The user has to solve the given tasks and submit his or her responses.
-A new project can be choses to contribute for if the user wishes to.
+- Any user can contribute to available tasks.
+- User has to select a project he or she wishes to contribute.
+- The system will allocate some number of tasks for the user to solve.
+- The user has to solve the given tasks and submit his or her responses.
+- A new project can be choses to contribute for if the user wishes to.
 
 ## Contributing
 
