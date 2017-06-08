@@ -23,4 +23,16 @@ National virtual library of India (NVLI) is a platform for storing digital asset
 
 ## Authors
 
+**Gaurav Mishra**
+- <https://github.com/grms96>
+
+**Saket Karve**
+- <https://github.com/Saket-Karve>
+
+**Shruthi Nadigoti**
+- <https://github.com/Shruthi-Nadigoti>
+
+**Amarnath Karthi**
+- <https://github.com/97amarnathk>
+
 ## License
